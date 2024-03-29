@@ -10,7 +10,7 @@ import Foundation
 
 public class TabText {
     private var text:String = ""
-    private var attributes:[String:Any] = [NSFontAttributeName : UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: UIColor.black]
+    private var attributes:[NSAttributedString.Key:Any] = [.font : UIFont.systemFont(ofSize: 15), .foregroundColor: UIColor.black]
     
     public class func title(_ title:String) -> TabText {
         let text = TabText()
@@ -24,27 +24,27 @@ public class TabText {
     }
     
     public func font(_ font:UIFont) -> TabText {
-        self.attributes.updateValue(font, forKey: NSFontAttributeName)
+        self.attributes.updateValue(font, forKey: NSAttributedString.Key.font)
         return self
     }
     
     public func font(size:CGFloat) -> TabText {
-        self.attributes.updateValue(UIFont.systemFont(ofSize: size), forKey: NSFontAttributeName)
+        self.attributes.updateValue(UIFont.systemFont(ofSize: size), forKey: NSAttributedString.Key.font)
         return self
     }
     
     public func boldFont(size:CGFloat) -> TabText {
-        self.attributes.updateValue(UIFont.boldSystemFont(ofSize: size), forKey: NSFontAttributeName)
+        self.attributes.updateValue(UIFont.boldSystemFont(ofSize: size), forKey: NSAttributedString.Key.font)
         return self
     }
     
     public func color(_ color:UIColor) -> TabText {
-        self.attributes.updateValue(color, forKey: NSForegroundColorAttributeName)
+        self.attributes.updateValue(color, forKey: NSAttributedString.Key.foregroundColor)
         return self
     }
     
     public func add(_ value:Any, attrKey:String) -> TabText {
-        self.attributes.updateValue(value, forKey: attrKey)
+        self.attributes.updateValue(value, forKey: NSAttributedString.Key(rawValue: attrKey))
         return self
     }
     

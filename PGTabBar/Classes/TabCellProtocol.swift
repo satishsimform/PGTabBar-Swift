@@ -14,7 +14,7 @@ import Foundation
 
 public protocol TabCellProtocol {
     
-    weak var container:TabContainer? { get set }
+    var container:TabContainer? { get set }
     
     func updateTabCell(_ item:TabItemProtocol?)
     
